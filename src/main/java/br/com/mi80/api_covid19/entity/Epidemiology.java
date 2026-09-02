@@ -47,5 +47,27 @@ public class Epidemiology implements Serializable {
     @Column(name = "new_deaths")
     private BigDecimal newDeaths;
 
+    @Column(name = "new_deaths_smoothed")
+    private BigDecimal newDeathsSmoothed;
 
+    @Column(name = "total_cases_per_million")
+    private BigDecimal totalCasesMillion;
+
+    @Column(name = "new_cases_per_million")
+    private BigDecimal newCasesMillion;
+
+    @Column(name = "new_cases_smoothed_per_million")
+    private BigDecimal newCasesSmoothedMillion;
+
+    @Column(name = "total_deaths_per_million")
+    private BigDecimal totalDeathsMillion;
+
+    @Column(name = "new_deaths_per_million")
+    private BigDecimal newDeathsMillion;
+
+    @Column(name = "new_deaths_smoothed_per_million")
+    private BigDecimal newDeathsSmoothedMillion;
+
+    @Column(name = "reproduction_rate")
+    private BigDecimal reproductionRate;
 }
