@@ -14,20 +14,14 @@ import java.math.BigDecimal;
 @Builder
 public class LocationProfile {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long location_id;
+    @Column(name = "location_id")
+    private Long id;
 
-    @Column(
-            name = "population",
-            nullable = false
-    )
-    private Long population;
-
-    @Column(name = "population_density")
-    private BigDecimal populationDensity;
-
-    @Column(name = "median_age")
-    private BigDecimal medianAge;
+    // AQUI FICA O MAPSID:
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     @Column(name = "aged_65_older")
     private BigDecimal aged65Older;

@@ -4,24 +4,23 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "location_type")
+@Table(name = "test_unit")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class LocationType {
+public class TestUnit {
     @Id
     @Column(
-            nullable = false,
-            length = 30,
-            name = "location_type_code"
+            name = "test_unit_code",
+            length = 30
     )
-    private String location;
+    private String testUnitCode;
 
     @Column(
             name = "description",
-            length = 150,
+            length = 100,
             nullable = false
     )
     private String description;

@@ -13,13 +13,14 @@ import lombok.*;
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long location_id;
+    private Long id;
+
 
     @Column(
             length = 12, nullable = false,
             name = "iso_code"
     )
-    private String iso_code;
+    private String isoCode;
 
     @Column(
             length = 120, nullable = false,
@@ -34,7 +35,7 @@ public class Location {
             name = "continent_id",
             nullable = false
     )
-    private Continent continent_id;
+    private Continent continent;
 
     @JoinColumn(
             name = "location_type_code",
@@ -43,5 +44,5 @@ public class Location {
     @ManyToOne(
             fetch = FetchType.LAZY
     )
-    private LocationType location_type_code;
+    private LocationType locationType;
 }

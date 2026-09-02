@@ -1,9 +1,6 @@
 package br.com.mi80.api_covid19.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -17,20 +14,14 @@ import java.sql.Date;
 @Setter
 @Getter
 @Builder
-public class Epidemiology implements Serializable {
-    @Id
-    @Column(
-            name = "location_id",
-            nullable = false
-    )
-    private Long locationId;
+public class EpidemiologyObservation implements Serializable {
+    @EmbeddedId
+    private ObservationDayID id;
 
-    @Id
-    @Column(
-            name = "observation_date",
-            nullable = false
-    )
-    private Date observationDate;
+    @MapsId("idLocation")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private Location location;
 
     @Column(name = "total_cases")
     private BigDecimal totalCases;

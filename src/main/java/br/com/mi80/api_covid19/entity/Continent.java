@@ -17,7 +17,7 @@ import lombok.*;
 public class Continent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short continentId;
+    private Short continentId;
 
     @Column(length = 40, nullable = false, name = "name")
     private String name;
